@@ -9,9 +9,9 @@ It is a chinese chess game which is similar with the typical chess most people p
 If you don't know which pieces refer to which class, you can find the img file recognise the name and its appearance.  
 
 If you don't know about this game, I try to explain it a little:   
-    The Goal is to checkmate the opponent's king then win.  
-    Different type of piece have different move route of course.   
+    -The Goal is to checkmate the opponent's king then win.  
+    -Different type of piece have different move route of course.   
         (If you want to know the details of it, just try to download the files and play a few moves with each pieces.)  
-    I believe the most complicated route of piece is the 'Cannon'(class name of .py is 'Boom' lol) which   
+    -I believe the most complicated route of piece is the 'Cannon'(class name of .py is 'Boom' lol) which   
         need a intermediary(teammates/opponents' pieces) to capture the opponents.  
 </pre>
