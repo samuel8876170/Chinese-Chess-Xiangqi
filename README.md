@@ -1,6 +1,6 @@
 # Chinese-Chess-Xiangqi
 
-It is a chinese chess game which is similar with the typical chess most people played.
+It is a chinese chess game which is similar with the typical chess most people played.\n
   -This code is simple and not perfectly optimized / even some missing rules 
       (If you have any more efficient way/ideas, tell me! I really want to know)
   -no any online functions (local game)
