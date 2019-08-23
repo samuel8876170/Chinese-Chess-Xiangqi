@@ -1,8 +1,8 @@
 # Chinese-Chess-Xiangqi
 
-It is a chinese chess game which is similar with the typical chess most people played.<br/>
-    -This code is simple and not perfectly optimized / even some missing rules <br/>
-        (If you have any more efficient way/ideas, tell me! I really want to know)<br/>
+It is a chinese chess game which is similar with the typical chess most people played.  
+    -This code is simple and not perfectly optimized / even some missing rules  
+        (If you have any more efficient way/ideas, tell me! I really want to know)  
     -no any online functions (local game)<br/>
     -no ai to play with you (human vs human only)<br/>
 
