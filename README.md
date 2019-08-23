@@ -6,7 +6,7 @@ It is a chinese chess game which is similar with the typical chess most people p
 -no any online functions (local game)
 -no ai to play with you (human vs human only)
 
-If you don't know which pieces refer to which class, you can find the img file recognise the name and its appearance.
+If you don't know which pieces refer to which class,<br/> you can find the img file recognise the name and its appearance.
 
 If you don't know about this game, I try to explain it a little: 
 The Goal is to checkmate the opponent's king then win.
