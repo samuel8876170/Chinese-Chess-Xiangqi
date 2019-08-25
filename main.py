@@ -1,4 +1,6 @@
 import pygame
+import Setting
+from Setting import win_width, win_height, board_position
 import os
 from Cannon import Cannon
 from Car import Car
@@ -7,8 +9,6 @@ from Guard import Guard
 from Horse import Horse
 from King import King
 from Minion import Minion
-import Setting
-from Setting import font, win_width, win_height, board_position
 
 # board setting
 board_img = pygame.transform.scale(pygame.image.load(os.path.join('imgs', 'chess_board.jpg')), (700, 600))
@@ -42,7 +42,7 @@ def draw_background(win, sprites, move_list=None, color=0):
 
 
 def main():
-    # pygame setting
+    # game setting
     pygame.time.Clock()
     pygame.display.init()
 
@@ -65,13 +65,11 @@ def main():
                 Minion(8, 6, 1)]]
 
     kings = [sprites[0][4], sprites[1][4]]
-    print('red sprites: ', sprites[0])
-    print('black sprites: ', sprites[1])
-    print('kings: ', kings)
+
     color, sprite, legal_move = 0, 0, []
 
     draw_background(win, sprites, legal_move, color)
-    print('>> Game Start!')
+    print('>> Game Start!\n')
 
     run = True
     while run:
@@ -88,25 +86,28 @@ def main():
                 print('Red Win!!')
             run = False
 
+        teammates_loc = []
+        for teammate in sprites[color]:
+            # Save teammate location to let inner function do specific delete of legal_move.
+            teammates_loc.append([teammate.x, teammate.y])
+            # if [teammate.x, teammate.y] in legal_move:
+            #     legal_move.remove([teammate.x, teammate.y])     # you cannot overlap two pieces
+
+        opponents_loc = []
+        for opponent in sprites[1 - color]:
+            # Save enemy location to let inner function do specific delete of legal_move.
+            opponents_loc.append([opponent.x, opponent.y])
+
         if pygame.mouse.get_pressed()[0]:
             for sprite in sprites[color]:
                 if 0 < mouse_pos[0] - sprite.rect[0] < 61 and 0 < mouse_pos[1] - sprite.rect[1] < 61:
                     print('>> mouse_pos:', mouse_pos, 'sprite.rect: (', sprite.rect[0], ',', sprite.rect[1], ')')
                     print('>> you picked up', sprite, ' at point', [sprite.x, sprite.y], 'color:', color, '\n')
 
-                    teammates_loc = []
-                    for teammate in sprites[color]:
-                        # Save teammate location to let inner function do specific delete of legal_move.
-                        teammates_loc.append([teammate.x, teammate.y])
-                        # if [teammate.x, teammate.y] in legal_move:
-                        #     legal_move.remove([teammate.x, teammate.y])     # you cannot overlap two pieces
-
-                    opponents_loc = []
-                    for opponent in sprites[1 - color]:
-                        # Save enemy location to let inner function do specific delete of legal_move.
-                        opponents_loc.append([opponent.x, opponent.y])
-
-                    legal_move = sprite.show_legal_move(teammates_loc, opponents_loc)
+                    if id(sprite) == id(kings[color]):
+                        legal_move = sprite.show_legal_move(teammates_loc, opponents_loc, kings)
+                    else:
+                        legal_move = sprite.show_legal_move(teammates_loc, opponents_loc)
 
                     choose = True   # now choose a destination for your chosen piece
                     if legal_move:
@@ -129,8 +130,9 @@ def main():
                                             print('eat~\n')
                                             for piece in sprites[1 - color]:
                                                 if move == [piece.x, piece.y]:
-                                                    print('deleted\n')
+                                                    print('deleted')
                                                     sprites[1 - color].remove(piece)
+                                                    print(sprites[1-color])
                                         else:
                                             print('>> move~\n')
                                         sprite.update_coordinate(move[0], move[1])
