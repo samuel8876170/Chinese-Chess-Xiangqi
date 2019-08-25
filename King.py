@@ -1,6 +1,7 @@
 import pygame
 import os
 from Setting import board_position
+from math import pow
 
 
 class King:
@@ -22,7 +23,7 @@ class King:
 
         pygame.display.update()
 
-    def show_legal_move(self, teammate_loc, opponent_loc):
+    def show_legal_move(self, teammate_loc, opponent_loc, kings):
         # This piece can only move one step(up,down,left,right) inside its 2x2 square
         legal_move, remove = [], []
 
@@ -43,6 +44,17 @@ class King:
                 elif self.color == 1:
                     if move[1] < 7 or move[1] > 9:
                         remove.append(move)
+
+        king_eat_king = 0
+        if kings[0].x == kings[1].x:    # if both kings on same x coordinate
+            for y in range(kings[0].y+1, kings[1].y):
+                # if there exists any pieces between two kings
+                if [self.x, y] in teammate_loc or [self.x, y] in opponent_loc:
+                    king_eat_king += 1      # add 1 if pieces between two kings exists
+
+        # if no pieces between two kings and two kings on same x axis, you can use your king to eat opponent king
+        if king_eat_king == 0:
+            legal_move.append([kings[1 - self.color].x, kings[1 - self.color].y])
 
         for el in remove:
             legal_move.remove(el)
