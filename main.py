@@ -27,9 +27,9 @@ def draw_background(win, sprites, move_list=None, color=0):
                                             sprite.rect[2], sprite.rect[3]), 1)
     for sprite in sprites[1 - color]:
         win.blit(sprite.img[1 - color], board_position[sprite.y][sprite.x])
-        pygame.draw.rect(win, (255, 0, 0), (board_position[sprite.y][sprite.x][0],
-                                            board_position[sprite.y][sprite.x][1],
-                                            sprite.rect[2], sprite.rect[3]), 1)
+#         pygame.draw.rect(win, (255, 0, 0), (board_position[sprite.y][sprite.x][0],
+#                                             board_position[sprite.y][sprite.x][1],
+#                                             sprite.rect[2], sprite.rect[3]), 1)
 
     # generate rect of move_list
     if move_list:
