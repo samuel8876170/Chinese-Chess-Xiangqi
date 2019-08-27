@@ -1,4 +1,5 @@
 # Chinese-Chess-Xiangqi
+<pre>
 It is a chinese chess game which is similar with the typical chess most people played.  
     -This code is simple and not perfectly optimized / even some missing rules  
         (If you have any more efficient way/ideas, tell me! I really want to know)  
@@ -13,3 +14,4 @@ If you don't know about this game, I try to explain it a little:
         (If you want to know the details of it, just try to download the files and play a few moves with each pieces.)  
     -I believe the most complicated route of piece is the 'Cannon'(class name of .py is 'Boom' lol) which   
         need a intermediary(teammates/opponents' pieces) to capture the opponents.  
+</pre>
