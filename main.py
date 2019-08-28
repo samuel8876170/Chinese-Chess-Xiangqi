@@ -137,7 +137,7 @@ def main():
                                             print('>> move~\n')
                                         sprite.update_coordinate(move[0], move[1])
 
-                                        old_position, sprite, legal_move = [], 0, []    # reset all inner var for moving
+                                        sprite, legal_move = 0, []    # reset all inner var for moving
                                         choose = False
 
                                         color = 1 - color
@@ -147,7 +147,7 @@ def main():
                             if key[pygame.K_ESCAPE]:    # back to choosing pieces process
                                 print('>> ESC pressed\n')
 
-                                old_position, sprite, legal_move = [], 0, []    # reset all inner var for moving
+                                sprite, legal_move = 0, []    # reset all inner var for moving
                                 choose = False
 
                             draw_background(win, sprites, legal_move, color)
