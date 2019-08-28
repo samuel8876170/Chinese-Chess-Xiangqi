@@ -142,8 +142,6 @@ def main():
 
                                         color = 1 - color
 
-                                        pygame.time.wait(500)
-
                             if key[pygame.K_ESCAPE]:    # back to choosing pieces process
                                 print('>> ESC pressed\n')
 
