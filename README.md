@@ -1,5 +1,7 @@
 # Chinese-Chess-Xiangqi
 <pre>
+FIRST, you NEED to press ESC to choose another pieces after you have already chosen one piece.
+
 It is a chinese chess game which is similar with the typical chess most people played.  
     -This code is simple and not perfectly optimized / even some missing rules  
         (If you have any more efficient way/ideas, tell me! I really want to know)  
